@@ -1,0 +1,26 @@
+{
+  "name": "genshin-feedback",
+  "version": "1.0.0",
+  "description": "Genshin tool to manage your feedback for when the surveys come out",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/genshintools/genshin-feedback.git"
+  },
+  "keywords": [
+    "genshin",
+    "genshin",
+    "impact",
+    "genshin",
+    "tools"
+  ],
+  "author": "Ryan Benson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/genshintools/genshin-feedback/issues"
+  },
+  "homepage": "https://github.com/genshintools/genshin-feedback#readme"
+}
