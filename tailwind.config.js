@@ -7,6 +7,12 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  content: [
+    'node_modules/preline/dist/*.js',
+  ],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('preline/plugin'),
+  ],
 }
  
