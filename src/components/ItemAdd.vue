@@ -1,23 +1,31 @@
 <script>
 import { reactive } from 'vue'
 import { useVuelidate } from '@vuelidate/core'
-import { required, alphaNum } from '@vuelidate/validators'
+import { required } from '@vuelidate/validators'
+import { useFeedbackStore } from '@/stores/feedback'
 
 export default {
   setup() {
-    const state = reactive({
-      item: ''
-    })
+    const store = useFeedbackStore()
 
-    function submit() {
-      console.log(state.item)
-    }
+    const state = reactive({
+      item: '',
+      success: false
+    })
 
     const rules = {
       item: { required }
     }
 
     const v$ = useVuelidate(rules, state)
+
+    function submit() {
+      store.addItem(state.item)
+      state.item = ''
+      state.success = true
+      v$.value.$reset()
+      setTimeout(() => (state.success = false), 2000)
+    }
 
     return { state, v$, submit }
   }
@@ -27,6 +35,7 @@ export default {
 <template>
   <div class="item item--new">
     <form @submit.prevent="submit">
+      <div v-if="state.success">Added your piece of feedback!</div>
       <input
         v-model.trim="v$.item.$model"
         @enter="submit"

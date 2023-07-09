@@ -1,4 +1,9 @@
 <script setup>
+import { storeToRefs } from 'pinia'
+import { useFeedbackStore } from '@/stores/feedback'
+const store = useFeedbackStore()
+const { items } = storeToRefs(store)
+
 import WelcomeItem from './WelcomeItem.vue'
 import DocumentationIcon from './icons/IconDocumentation.vue'
 import ToolingIcon from './icons/IconTooling.vue'
@@ -8,6 +13,7 @@ import SupportIcon from './icons/IconSupport.vue'
 </script>
 
 <template>
+  <p>{{ items }}</p>
   <WelcomeItem>
     <template #icon>
       <DocumentationIcon />
